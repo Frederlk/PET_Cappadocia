@@ -14,7 +14,7 @@
         margin: 0;
     }
 
-    &__content {
+    &__container {
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -131,7 +131,7 @@
             top: 0;
         }
         &::after {
-            bottom: 0;
+            bottom: rem(1);
         }
         span {
             top: calc(50% - rem(1));

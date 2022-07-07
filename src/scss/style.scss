@@ -146,6 +146,6 @@ body {
     &__price,
     &__hotel,
     &__regist {
-        @include adaptiveValue("margin-bottom", 200, 50, 1200, 479.98, 1);
+        @include adaptiveValue("margin-bottom", 200, 60, 1200, 991.98, 1);
     }
 }
