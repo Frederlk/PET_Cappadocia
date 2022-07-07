@@ -1,0 +1,755 @@
+//<МИКСИНЫ>===============================================================================================
+@import "mixins";
+//</МИКСИНЫ>===============================================================================================
+
+//<ШРИФТЫ>===============================================================================================
+@import url("https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300italic,regular&display=swap&subset=cyrillic-ext");
+
+//<Подключаем шрифты>=======================================================================================
+//&display=swap&subset=cyrillic-ext (В конец)
+@import "fonts";
+//</Подключаем шрифты>=======================================================================================
+
+//<Иконочные шрифты>==========================================================================================
+@import "icons";
+//</Иконочные шрифты>==========================================================================================
+
+//<Шрифт по умолчанию>==========================================================================================
+$fontFamily: "Roboto Condensed";
+//</Шрифт по умолчанию>==========================================================================================
+
+//</ШРИФТЫ>=======================================================================================================
+
+//<ПЕРЕМЕННЫЕ>===========================================================================================================
+$minWidth: 320px;
+$maxWidth: 1920;
+$maxWidthContainer: 1220;
+$md1: $maxWidthContainer + 12;
+$md2: 991.98;
+$md3: 767.98;
+$md4: 479.98;
+//</ПЕРЕМЕННЫЕ>===========================================================================================================
+
+//<ОБНУЛЕНИЕ, ОБЩИЕ ПАРАМЕТРЫ>===============================================================================================
+@import "null";
+body {
+	color: #000;
+	font-size: 14px;
+	background-color: #ffffff;
+	&._lock {
+		overflow: hidden;
+	}
+}
+//</ОБНУЛЕНИЕ, ОБЩИЕ ПАРАМЕТРЫ>===============================================================================================
+
+//<ОБОЛОЧКА>===========================================================================================================
+.wrapper {
+	width: 100%;
+	min-height: 100%;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	&._loaded {
+	}
+}
+//</ОБОЛОЧКА>===========================================================================================================
+
+//<ОСНОВНАЯ СЕТКА>===========================================================================================================
+._container {
+	max-width: $maxWidthContainer + px;
+	margin: 0 auto;
+	padding: 0px 10px;
+}
+//</ОСНОВНАЯ СЕТКА>===========================================================================================================
+
+//<ПОДКЛЮЧЕНИЕ ФАЙЛОВ UI СТИЛЕЙ, ФОРМ И ГОТОВЫХ КЛАССОВ>====================================================================================================
+@import "forms";
+@import "ui";
+//</ПОДКЛЮЧЕНИЕ ФАЙЛОВ UI СТИЛЕЙ, ФОРМ И ГОТОВЫХ КЛАССОВ>====================================================================================================
+
+//<ПОДКЛЮЧЕНИЕ ФАЙЛОВ СТИЛЕЙ СТРАНИЦ И ЭЛЕМЕНТОВ>====================================================================================================
+//@import "datepicker";
+@import "lightgallery";
+//@import "pagging";
+//@import "popup";
+@import "header";
+@import "footer";
+@import "home";
+//</ПОДКЛЮЧЕНИЕ ФАЙЛОВ СТИЛЕЙ СТРАНИЦ И ЭЛЕМЕНТОВ>====================================================================================================
+
+//<ОСНОВНОЙ БЛОК>====================================================================================================
+.page {
+	flex: 1 1 auto;
+}
+//===================================================================================================================================
+
+.page {
+	&__home {
+		@include adaptiv-value("margin-bottom", 200, 50, 1);
+	}
+
+	&__tail {
+		@include adaptiv-value("margin-bottom", 200, 50, 1);
+	}
+
+	&__trip {
+		@include adaptiv-value("margin-bottom", 200, 50, 1);
+	}
+
+	&__price {
+		@include adaptiv-value("margin-bottom", 200, 50, 1);
+	}
+
+	&__hotel {
+		@include adaptiv-value("margin-bottom", 200, 50, 1);
+	}
+
+	&__regist {
+		@include adaptiv-value("margin-bottom", 200, 50, 1);
+	}
+}
+.home {
+	position: relative;
+	&__content {
+		display: flex;
+		flex-direction: column;
+		min-height: 100vh;
+	}
+
+	&__container {
+		flex: 1 1 auto;
+		position: relative;
+		width: 100%;
+		z-index: 2;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	&__body {
+		padding: 100px 0px;
+		@include adaptiv-value("margin-top", -350, 200, 0);
+		@media (max-width: $md2+px) {
+			margin-top: -20px;
+		}
+	}
+
+	&__title {
+		display: inline-flex;
+		font-family: "Balqis";
+		@include adaptiv-font(250, 70, 0);
+		line-height: 334 / 250 * 100%;
+	}
+
+	&__subtitle {
+		@include adaptiv-value("margin-top", -70, -20, 0);
+		justify-content: flex-end;
+		display: flex;
+		font-style: italic;
+		font-weight: 300;
+		font-size: 56px;
+		@include adaptiv-font(56, 20, 0);
+		line-height: 66 / 56 * 100%;
+	}
+
+	&__bg {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		min-height: 100vh;
+		img {
+		}
+	}
+}
+
+//</ОСНОВНОЙ БЛОК>====================================================================================================
+
+.tail {
+	&__content {
+		display: flex;
+		flex-wrap: wrap;
+		position: relative;
+		@media (min-width: $md2+px) {
+			position: relative;
+			flex-wrap: nowrap;
+			display: flex;
+			margin: 0px -23px;
+		}
+	}
+
+	&__top {
+	}
+
+	&__body {
+	}
+
+	&__slider {
+		position: relative;
+		order: 1;
+		flex: 1 1 100%;
+		min-height: 40vh;
+		margin: 0px 10px 30px 10px;
+		@media (min-width: $md2+px) {
+			margin: 0;
+			flex: 0 0 50%;
+		}
+	}
+
+	&__item {
+		position: relative;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		img {
+		}
+	}
+	&__navigation {
+		padding: 0px 23px;
+		position: absolute;
+		width: 50%;
+		top: 50%;
+		transform: translate(0px, -50%);
+		left: 0;
+		display: flex;
+		justify-content: space-between;
+		@media (max-width: $md2+px) {
+			top: 20vh;
+			padding: 0px 10px;
+			width: 100%;
+		}
+	}
+
+	&__arrow {
+		cursor: pointer;
+		&::before {
+			transition: all 0.3s ease 0s;
+			font-size: 70px;
+			@include adaptiv-font(70, 50, 1);
+		}
+		@media (min-width: $md2+px) {
+			&:hover {
+				&::before {
+					color: #000;
+				}
+			}
+		}
+		&_prev {
+		}
+
+		&_next {
+		}
+	}
+}
+.top-tail {
+	@include adaptiv-value("margin-bottom", 100, 40, 1);
+	&__container {
+	}
+
+	&__title {
+	}
+
+	&__subtitle {
+		@include adaptiv-value("margin-top", -25, -15, 1);
+		@include adaptiv-value("margin-left", 180, 105, 1);
+	}
+}
+.body-tail {
+	order: 2;
+	@media (min-width: $md2+px) {
+		transform: translate(-50%, 0px);
+		flex: 0 0 100%;
+	}
+	&__container {
+	}
+
+	&__inner {
+		@media (min-width: $md2+px) {
+			transform: translate(100%, 0px);
+			width: 50%;
+			padding: 45px 0px 45px 55px;
+		}
+	}
+
+	&__text {
+		@extend .text_sm;
+		margin: 0px 0px 50px 0px;
+		@include adaptiv-value("margin-bottom", 50, 20, 1);
+		span {
+			font-weight: 400;
+		}
+		&:last-child {
+			margin: 0px 0px 0px 0px;
+		}
+	}
+
+	&__list {
+		@extend .text_sm;
+		@include adaptiv-value("margin-bottom", 50, 20, 1);
+	}
+}
+
+//========================================================================================================================================================
+
+.trip {
+	display: flex;
+	@media (max-width: $md2+px) {
+		flex-wrap: wrap;
+	}
+	&__content {
+		flex: 0 0 100%;
+		@media (max-width: $md2+px) {
+			flex: 1 1 100%;
+		}
+	}
+
+	&__slider {
+		position: relative;
+		flex: 0 0 50%;
+		transform: translate(-100%, 0px);
+		@media (max-width: $md2+px) {
+			flex: 1 1 100%;
+			transform: translate(0px, 0px);
+		}
+	}
+	&__navigation {
+		position: absolute;
+		width: 100%;
+		top: 50%;
+		transform: translate(0px, -50%);
+		left: 0;
+		display: flex;
+		justify-content: space-between;
+	}
+
+	&__arrow {
+		cursor: pointer;
+		&::before {
+			transition: all 0.3s ease 0s;
+			font-size: 70px;
+			@include adaptiv-font(70, 50, 1);
+		}
+		@media (min-width: $md2+px) {
+			&:hover {
+				&::before {
+					color: #000;
+				}
+			}
+		}
+		&_prev {
+		}
+
+		&_next {
+		}
+	}
+}
+.content-trip {
+	&__container {
+	}
+
+	&__top {
+		width: 50%;
+		@include adaptiv-value("margin-bottom", 108, 30, 1);
+		padding: 0px 55px 0px 0px;
+		@media (max-width: $md2+px) {
+			width: 100%;
+			padding: 0;
+		}
+	}
+
+	&__title {
+	}
+
+	&__subtitle {
+		@include adaptiv-value("margin-top", -25, -15, 1);
+		@include adaptiv-value("margin-left", 242, 140, 1);
+	}
+
+	&__body {
+		padding: 0px 55px 0px 0px;
+		width: 50%;
+		@media (max-width: $md2+px) {
+			width: 100%;
+			padding: 0;
+			display: flex;
+			flex-wrap: wrap;
+			margin: 0px -10px;
+			justify-content: center;
+		}
+		@media (max-width: $md3+px) {
+			margin: 0;
+			justify-content: flex-start;
+		}
+	}
+
+	&__list {
+		@extend .link;
+		@include adaptiv-value("margin-bottom", 50, 20, 1);
+		@media (max-width: $md2+px) {
+			flex: 0 1 50%;
+			padding: 0px 10px;
+		}
+		@media (max-width: $md3+px) {
+			flex: 1 1 100%;
+			padding: 0;
+		}
+	}
+
+	&__label {
+		@include adaptiv-value("margin-bottom", 20, 10, 1);
+	}
+
+	&__item {
+		font-weight: 300;
+	}
+
+	&__btn {
+	}
+}
+.slider-trip {
+	min-width: 0;
+	@media (max-width: $md2+px) {
+		margin: 0px 0px 20px 0px;
+	}
+	&__body {
+		height: 100%;
+	}
+
+	&__item {
+		width: 100% !important;
+		@media (max-width: $md2+px) {
+			min-height: 40vh;
+		}
+		img {
+		}
+	}
+}
+
+//========================================================================================================================================================
+
+.hotel {
+	&__container {
+	}
+
+	&__top {
+		@include adaptiv-value("margin-bottom", 100, 30, 1);
+	}
+
+	&__title {
+	}
+
+	&__subtitle {
+		@include adaptiv-value("margin-top", -25, -15, 1);
+		@include adaptiv-value("margin-left", 120, 80, 1);
+	}
+
+	&__body {
+		display: flex;
+		justify-content: space-between;
+	}
+
+	&__column {
+		flex: 0 0 50%;
+		&:first-child {
+			flex: 0 1 500px;
+			position: relative;
+			margin: 0px 20px 0px 0px;
+		}
+		@media (max-width: $md3+px) {
+			flex: 1 1 100%;
+			&:first-child {
+				display: none;
+			}
+		}
+	}
+
+	&__image {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+	}
+	&__info {
+	}
+
+	&__text {
+		@include adaptiv-value("margin-bottom", 20, 10, 1);
+		@extend .text_sm;
+		&:last-child {
+			@include adaptiv-value("margin-bottom", 30, 10, 1);
+		}
+	}
+
+	&__gallery {
+		display: flex;
+		flex-wrap: wrap;
+	}
+
+	&__gallery-row {
+		display: flex;
+		flex: 1 1 100%;
+		justify-content: space-between;
+		@include adaptiv-value("margin-top", 50, 10, 1);
+	}
+	&__gallery-column {
+		margin: 0px 10px 0px 0px;
+		position: relative;
+		padding: 0px 0px 25% 0px;
+		flex: 0 1 280px;
+		min-height: 120px;
+		overflow: hidden;
+		&:last-child {
+			margin: 0px 0px 0px 0px;
+		}
+		@media (max-width: $md3+px) {
+			flex: 0 1 50%;
+			padding: 0px 0px 30% 0px;
+		}
+	}
+
+	&__gallery-item {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		transition: all 0.5s ease 0s;
+		@media (min-width: $md2+px) {
+			&:hover {
+				transform: scale(1.1);
+			}
+		}
+	}
+}
+//========================================================================================================================================================
+
+.price {
+	&__container {
+	}
+
+	&__top {
+		@include adaptiv-value("margin-bottom", 100, 30, 1);
+		@media (max-width: $md2+px) {
+			position: relative;
+			&::after {
+				content: "";
+				position: absolute;
+				width: 73px;
+				height: 108px;
+				top: 0;
+				right: 0;
+				background: url("../img/Balloons/balloon1.png") 0 0 no-repeat;
+			}
+		}
+	}
+
+	&__title {
+	}
+
+	&__subtitle {
+		@include adaptiv-value("margin-top", -25, -15, 1);
+		@include adaptiv-value("margin-left", 121, 70, 1);
+	}
+
+	&__footer {
+		display: flex;
+		position: relative;
+		@media (max-width: $md3+px) {
+			flex-wrap: wrap;
+		}
+		&::after {
+			content: "";
+			position: absolute;
+			top: 0;
+			width: 206px;
+			height: 305px;
+			right: 0;
+			background: url("../img/Balloons/balloon2.png") top right no-repeat;
+			transform: translate(50%, -40%);
+			@media (max-width: 1440px) {
+				transform: translate(0%, -40%);
+			}
+			@media (max-width: $md2+px) {
+				display: none;
+			}
+		}
+	}
+
+	&__column {
+		flex: 0 1 50%;
+		@include adaptiv-value("padding-right", 70, 0, 0);
+		@media (max-width: $md2+px) {
+			&:last-child {
+				padding: 0;
+			}
+		}
+		@media (max-width: $md3+px) {
+			flex: 1 1 100%;
+			margin: 0px 0px 40px 0px;
+			&:last-child {
+				margin: 0px 0px 0px 0px;
+			}
+		}
+		&:last-child {
+			position: relative;
+			&::before,
+			&::after {
+				content: "";
+				position: absolute;
+				width: 73px;
+				height: 108px;
+				right: 0;
+				background: url("../img/Balloons/balloon1.png") 0 0 no-repeat;
+				@media (max-width: $md1+px) {
+					display: none;
+				}
+			}
+			&::before {
+				top: 0;
+				transform: translate(-200%, 50%);
+				@media (max-width: 1440px) {
+					transform: translate(-300%, 50%);
+				}
+			}
+			&::after {
+				bottom: 0;
+				transform: translate(-100%, 0px);
+				@media (max-width: 1440px) {
+					transform: translate(-200%, 0%);
+				}
+			}
+		}
+	}
+
+	&__body {
+		position: relative;
+		z-index: 2;
+	}
+
+	&__list {
+	}
+
+	&__list-label {
+		@extend .link;
+		@include adaptiv-value("margin-bottom", 50, 20, 1);
+	}
+
+	&__list-item {
+		@extend .text_sm;
+		@include adaptiv-value("margin-bottom", 20, 15, 1);
+		&:last-child {
+			margin: 0px 0px 0px 0px;
+		}
+	}
+}
+
+//========================================================================================================================================================
+
+.regist {
+	&__container {
+	}
+
+	&__content {
+		display: flex;
+	}
+
+	&__column {
+		flex: 0 1 50%;
+		&:first-child {
+			padding: 100px 30px;
+		}
+		&:last-child {
+			position: relative;
+		}
+		@media (max-width: $md3+px) {
+			flex: 1 1 100%;
+			&:first-child {
+				padding: 0px 30px;
+			}
+			&:last-child {
+				display: none;
+			}
+		}
+		@media (max-width: $md4+px) {
+			&:first-child {
+				padding: 0;
+			}
+		}
+	}
+
+	&__image {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+	}
+
+	&__top {
+		@include adaptiv-value("margin-bottom", 100, 30, 1);
+		@media (max-width: $md3+px) {
+			text-align: center;
+		}
+	}
+
+	&__date {
+		@include adaptiv-value("margin-left", 76, 20, 1);
+		@media (max-width: $md3+px) {
+			margin: 0;
+		}
+	}
+
+	&__date-subtitle {
+		@include adaptiv-value("margin-top", -22, -15, 1);
+		@include adaptiv-value("margin-left", 217, 80, 1);
+	}
+
+	&__price {
+		@include adaptiv-value("margin-left", 198, 20, 1);
+		@media (max-width: $md3+px) {
+			margin: 0;
+		}
+	}
+
+	&__price-subtitle {
+		@include adaptiv-value("margin-top", -22, -15, 1);
+		@include adaptiv-value("margin-left", 320, 80, 1);
+		@media (max-width: $md3+px) {
+			margin-left: 100px;
+		}
+	}
+
+	&__form {
+		text-align: center;
+	}
+
+	.form {
+		&__error {
+			margin: 10px 0px 0px 0px;
+			@extend .text_sm;
+		}
+	}
+	&__label {
+		@extend .link;
+		@include adaptiv-value("margin-bottom", 50, 20, 1);
+	}
+
+	&__input-name {
+		@include adaptiv-value("margin-bottom", 20, 10, 1);
+	}
+
+	&__input-tel {
+		@include adaptiv-value("margin-bottom", 20, 10, 1);
+	}
+
+	&__btn {
+		padding: 0px 45px;
+		@media (max-width: $md4+px) {
+			padding: 0 20px;
+			width: 100%;
+		}
+	}
+}

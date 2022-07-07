@@ -1,0 +1,56 @@
+@font-face {
+	font-family: "icons";
+	font-display: swap;
+	src: url("../fonts/icons.woff") format("woff"), url("../fonts/icons.woff2#icons") format("woff2");
+	font-weight: normal;
+	font-style: normal;
+	font-display: block;
+}
+%ic {
+	font-family: "icons";
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+[class^="_icon-"],
+[class*=" _icon-"] {
+	&:before,
+	&::after {
+		@extend %ic;
+		display: block;
+	}
+}
+
+._icon-instagram:before {
+	content: "\e900";
+	color: #e2ab3f;
+}
+._icon-facebook:before {
+	content: "\e901";
+	color: #e2ab3f;
+}
+._icon-youtube:before {
+	content: "\e90d";
+	color: #e2ab3f;
+}
+._icon-mail:before {
+	content: "\e90e";
+	color: #e2ab3f;
+}
+._icon-arrow-next:before {
+	content: "\e90f";
+	color: #fff;
+}
+._icon-arrow-prev:before {
+	content: "\e910";
+	color: #fff;
+}
+._icon-phone:before {
+	content: "\e911";
+	color: #000;
+}
