@@ -3,7 +3,6 @@
     &__content {
         display: flex;
         flex-direction: column;
-        min-height: 100vh;
     }
 
     &__container {
@@ -17,29 +16,28 @@
     }
 
     &__body {
-        padding: 100px 0px;
-        @include adaptiv-value("margin-top", -350, 200, 0);
-        @media (max-width: $md2+px) {
-            margin-top: -20px;
+        padding: rem(100) 0px;
+        @include adaptiveValue("margin-top", -350, 200, 0);
+        @media (max-width: $tablet) {
+            margin-top: rem(-20);
         }
     }
 
     &__title {
         display: inline-flex;
         font-family: "Balqis";
-        @include adaptiv-font(250, 70, 0);
-        line-height: 334 / 250 * 100%;
+        @include adaptiveValue("font-size", 250, 70, 1200, 479.98, 1);
+        line-height: math.div(334, 250);
     }
 
     &__subtitle {
-        @include adaptiv-value("margin-top", -70, -20, 0);
+        @include adaptiveValue("margin-top", -70, -20, 1200, 479.98, 1);
         justify-content: flex-end;
         display: flex;
         font-style: italic;
         font-weight: 300;
-        font-size: 56px;
-        @include adaptiv-font(56, 20, 0);
-        line-height: 66 / 56 * 100%;
+        @include adaptiveValue("font-size", 56, 20, 1200, 479.98, 1);
+        line-height: math.div(66, 56);
     }
 
     &__bg {
@@ -48,9 +46,6 @@
         left: 0;
         width: 100%;
         height: 100%;
-        min-height: 100vh;
-        img {
-        }
     }
 }
 
@@ -61,11 +56,11 @@
         display: flex;
         flex-wrap: wrap;
         position: relative;
-        @media (min-width: $md2+px) {
+        @media (min-width: $tablet) {
             position: relative;
             flex-wrap: nowrap;
             display: flex;
-            margin: 0px -23px;
+            margin: 0px rem(-23);
         }
     }
 
@@ -80,8 +75,8 @@
         order: 1;
         flex: 1 1 100%;
         min-height: 40vh;
-        margin: 0px 10px 30px 10px;
-        @media (min-width: $md2+px) {
+        margin: 0px rem(10) rem(30) rem(10);
+        @media (min-width: $tablet) {
             margin: 0;
             flex: 0 0 50%;
         }
@@ -93,11 +88,10 @@
         height: 100%;
         top: 0;
         left: 0;
-        img {
-        }
     }
+
     &__navigation {
-        padding: 0px 23px;
+        padding: 0px rem(23);
         position: absolute;
         width: 50%;
         top: 50%;
@@ -105,9 +99,9 @@
         left: 0;
         display: flex;
         justify-content: space-between;
-        @media (max-width: $md2+px) {
+        @media (max-width: $tablet) {
             top: 20vh;
-            padding: 0px 10px;
+            padding: 0px rem(10);
             width: 100%;
         }
     }
@@ -115,14 +109,13 @@
     &__arrow {
         cursor: pointer;
         &::before {
-            transition: all 0.3s ease 0s;
-            font-size: 70px;
-            @include adaptiv-font(70, 50, 1);
+            transition: color 0.3s ease 0s;
+            @include adaptiveValue("font-size", 70, 50, 1200, 479.98, 1);
         }
-        @media (min-width: $md2+px) {
+        @media (any-hover: hover) {
             &:hover {
                 &::before {
-                    color: #000;
+                    color: $mainColor;
                 }
             }
         }
@@ -134,7 +127,7 @@
     }
 }
 .top-tail {
-    @include adaptiv-value("margin-bottom", 100, 40, 1);
+    @include adaptiveValue("margin-bottom", 100, 40, 1200, 479.98, 1);
     &__container {
     }
 
@@ -142,13 +135,13 @@
     }
 
     &__subtitle {
-        @include adaptiv-value("margin-top", -25, -15, 1);
-        @include adaptiv-value("margin-left", 180, 105, 1);
+        @include adaptiveValue("margin-top", -25, -15, 1200, 479.98, 1);
+        @include adaptiveValue("margin-left", 180, 105, 1200, 479.98, 1);
     }
 }
 .body-tail {
     order: 2;
-    @media (min-width: $md2+px) {
+    @media (min-width: $tablet) {
         transform: translate(-50%, 0px);
         flex: 0 0 100%;
     }
@@ -156,28 +149,26 @@
     }
 
     &__inner {
-        @media (min-width: $md2+px) {
+        @media (min-width: $tablet) {
             transform: translate(100%, 0px);
             width: 50%;
-            padding: 45px 0px 45px 55px;
+            padding: rem(45) 0px rem(45) rem(55);
         }
     }
 
     &__text {
         @extend .text_sm;
-        margin: 0px 0px 50px 0px;
-        @include adaptiv-value("margin-bottom", 50, 20, 1);
+        &:not(:last-child) {
+            @include adaptiveValue("margin-bottom", 50, 20, 1200, 479.98, 1);
+        }
         span {
             font-weight: 400;
-        }
-        &:last-child {
-            margin: 0px 0px 0px 0px;
         }
     }
 
     &__list {
         @extend .text_sm;
-        @include adaptiv-value("margin-bottom", 50, 20, 1);
+        @include adaptiveValue("margin-bottom", 50, 20, 1200, 479.98, 1);
     }
 }
 
@@ -185,12 +176,12 @@
 
 .trip {
     display: flex;
-    @media (max-width: $md2+px) {
+    @media (max-width: $tablet) {
         flex-wrap: wrap;
     }
     &__content {
         flex: 0 0 100%;
-        @media (max-width: $md2+px) {
+        @media (max-width: $tablet) {
             flex: 1 1 100%;
         }
     }
@@ -199,7 +190,7 @@
         position: relative;
         flex: 0 0 50%;
         transform: translate(-100%, 0px);
-        @media (max-width: $md2+px) {
+        @media (max-width: $tablet) {
             flex: 1 1 100%;
             transform: translate(0px, 0px);
         }
@@ -217,14 +208,13 @@
     &__arrow {
         cursor: pointer;
         &::before {
-            transition: all 0.3s ease 0s;
-            font-size: 70px;
-            @include adaptiv-font(70, 50, 1);
+            transition: color 0.3s ease 0s;
+            @include adaptiveValue("font-size", 70, 50, 1200, 479.98, 1);
         }
-        @media (min-width: $md2+px) {
+        @media (any-hover: hover) {
             &:hover {
                 &::before {
-                    color: #000;
+                    color: $mainColor;
                 }
             }
         }
@@ -235,15 +225,16 @@
         }
     }
 }
+
 .content-trip {
     &__container {
     }
 
     &__top {
         width: 50%;
-        @include adaptiv-value("margin-bottom", 108, 30, 1);
-        padding: 0px 55px 0px 0px;
-        @media (max-width: $md2+px) {
+        @include adaptiveValue("margin-bottom", 108, 30, 1200, 479.98, 1);
+        padding-right: rem(55);
+        @media (max-width: $tablet) {
             width: 100%;
             padding: 0;
         }
@@ -253,22 +244,22 @@
     }
 
     &__subtitle {
-        @include adaptiv-value("margin-top", -25, -15, 1);
-        @include adaptiv-value("margin-left", 242, 140, 1);
+        @include adaptiveValue("margin-top", -25, -15, 1200, 479.98, 1);
+        @include adaptiveValue("margin-left", 242, 140, 1200, 479.98, 1);
     }
 
     &__body {
-        padding: 0px 55px 0px 0px;
+        padding-right: rem(55);
         width: 50%;
-        @media (max-width: $md2+px) {
+        @media (max-width: $tablet) {
             width: 100%;
             padding: 0;
             display: flex;
             flex-wrap: wrap;
-            margin: 0px -10px;
+            margin: 0px rem(-10);
             justify-content: center;
         }
-        @media (max-width: $md3+px) {
+        @media (max-width: $mobile) {
             margin: 0;
             justify-content: flex-start;
         }
@@ -276,19 +267,19 @@
 
     &__list {
         @extend .link;
-        @include adaptiv-value("margin-bottom", 50, 20, 1);
-        @media (max-width: $md2+px) {
+        @include adaptiveValue("margin-bottom", 50, 20, 1200, 479.98, 1);
+        @media (max-width: $tablet) {
             flex: 0 1 50%;
-            padding: 0px 10px;
+            padding: 0px rem(10);
         }
-        @media (max-width: $md3+px) {
+        @media (max-width: $mobile) {
             flex: 1 1 100%;
             padding: 0;
         }
     }
 
     &__label {
-        @include adaptiv-value("margin-bottom", 20, 10, 1);
+        @include adaptiveValue("margin-bottom", 20, 10, 1200, 479.98, 1);
     }
 
     &__item {
@@ -300,8 +291,8 @@
 }
 .slider-trip {
     min-width: 0;
-    @media (max-width: $md2+px) {
-        margin: 0px 0px 20px 0px;
+    @media (max-width: $tablet) {
+        margin-bottom: rem(20);
     }
     &__body {
         height: 100%;
@@ -309,10 +300,8 @@
 
     &__item {
         width: 100% !important;
-        @media (max-width: $md2+px) {
+        @media (max-width: $tablet) {
             min-height: 40vh;
-        }
-        img {
         }
     }
 }
@@ -324,15 +313,15 @@
     }
 
     &__top {
-        @include adaptiv-value("margin-bottom", 100, 30, 1);
+        @include adaptiveValue("margin-bottom", 100, 30, 1200, 479.98, 1);
     }
 
     &__title {
     }
 
     &__subtitle {
-        @include adaptiv-value("margin-top", -25, -15, 1);
-        @include adaptiv-value("margin-left", 120, 80, 1);
+        @include adaptiveValue("margin-top", -25, -15, 1200, 479.98, 1);
+        @include adaptiveValue("margin-left", 120, 80, 1200, 479.98, 1);
     }
 
     &__body {
@@ -343,11 +332,11 @@
     &__column {
         flex: 0 0 50%;
         &:first-child {
-            flex: 0 1 500px;
+            flex: 0 1 rem(500);
             position: relative;
-            margin: 0px 20px 0px 0px;
+            margin-right: rem(20);
         }
-        @media (max-width: $md3+px) {
+        @media (max-width: $mobile) {
             flex: 1 1 100%;
             &:first-child {
                 display: none;
@@ -366,10 +355,10 @@
     }
 
     &__text {
-        @include adaptiv-value("margin-bottom", 20, 10, 1);
+        @include adaptiveValue("margin-bottom", 20, 10, 1200, 479.98, 1);
         @extend .text_sm;
         &:last-child {
-            @include adaptiv-value("margin-bottom", 30, 10, 1);
+            @include adaptiveValue("margin-bottom", 30, 10, 1200, 479.98, 1);
         }
     }
 
@@ -382,21 +371,21 @@
         display: flex;
         flex: 1 1 100%;
         justify-content: space-between;
-        @include adaptiv-value("margin-top", 50, 10, 1);
+        @include adaptiveValue("margin-top", 50, 10, 1200, 479.98, 1);
     }
+
     &__gallery-column {
-        margin: 0px 10px 0px 0px;
         position: relative;
-        padding: 0px 0px 25% 0px;
-        flex: 0 1 280px;
-        min-height: 120px;
+        padding-bottom: 25%;
+        flex: 0 1 rem(280);
+        min-height: rem(120);
         overflow: hidden;
-        &:last-child {
-            margin: 0px 0px 0px 0px;
+        &:not(:last-child) {
+            margin-bottom: rem(10);
         }
-        @media (max-width: $md3+px) {
+        @media (max-width: $mobile) {
             flex: 0 1 50%;
-            padding: 0px 0px 30% 0px;
+            padding-bottom: 30%;
         }
     }
 
@@ -406,8 +395,8 @@
         height: 100%;
         top: 0;
         left: 0;
-        transition: all 0.5s ease 0s;
-        @media (min-width: $md2+px) {
+        transition: transform 0.5s ease 0s;
+        @media (any-hover: hover) {
             &:hover {
                 transform: scale(1.1);
             }
@@ -421,17 +410,17 @@
     }
 
     &__top {
-        @include adaptiv-value("margin-bottom", 100, 30, 1);
-        @media (max-width: $md2+px) {
+        @include adaptiveValue("margin-bottom", 100, 30, 1200, 479.98, 1);
+        @media (max-width: $tablet) {
             position: relative;
             &::after {
                 content: "";
                 position: absolute;
-                width: 73px;
-                height: 108px;
+                width: rem(73);
+                height: rem(108);
                 top: 0;
                 right: 0;
-                background: url("../img/Balloons/balloon1.png") 0 0 no-repeat;
+                background: url("@img/Balloons/balloon1.png") 0 0 no-repeat;
             }
         }
     }
@@ -440,29 +429,29 @@
     }
 
     &__subtitle {
-        @include adaptiv-value("margin-top", -25, -15, 1);
-        @include adaptiv-value("margin-left", 121, 70, 1);
+        @include adaptiveValue("margin-top", -25, -15, 1200, 479.98, 1);
+        @include adaptiveValue("margin-left", 121, 70, 1200, 479.98, 1);
     }
 
     &__footer {
         display: flex;
         position: relative;
-        @media (max-width: $md3+px) {
+        @media (max-width: $mobile) {
             flex-wrap: wrap;
         }
         &::after {
             content: "";
             position: absolute;
             top: 0;
-            width: 206px;
-            height: 305px;
+            width: rem(206);
+            height: rem(305);
             right: 0;
-            background: url("../img/Balloons/balloon2.png") top right no-repeat;
+            background: url("@img/Balloons/balloon2.png") top right no-repeat;
             transform: translate(50%, -40%);
-            @media (max-width: 1440px) {
+            @media (max-width: em(1440)) {
                 transform: translate(0%, -40%);
             }
-            @media (max-width: $md2+px) {
+            @media (max-width: $tablet) {
                 display: none;
             }
         }
@@ -470,17 +459,16 @@
 
     &__column {
         flex: 0 1 50%;
-        @include adaptiv-value("padding-right", 70, 0, 0);
-        @media (max-width: $md2+px) {
+        @include adaptiveValue("padding-right", 70, 0, 0);
+        @media (max-width: $tablet) {
             &:last-child {
                 padding: 0;
             }
         }
-        @media (max-width: $md3+px) {
+        @media (max-width: $mobile) {
             flex: 1 1 100%;
-            margin: 0px 0px 40px 0px;
-            &:last-child {
-                margin: 0px 0px 0px 0px;
+            &:not(:last-child) {
+                margin-bottom: rem(40);
             }
         }
         &:last-child {
@@ -489,25 +477,25 @@
             &::after {
                 content: "";
                 position: absolute;
-                width: 73px;
-                height: 108px;
+                width: rem(73);
+                height: rem(108);
                 right: 0;
-                background: url("../img/Balloons/balloon1.png") 0 0 no-repeat;
-                @media (max-width: $md1+px) {
+                background: url("@img/Balloons/balloon1.png") 0 0 no-repeat;
+                @media (max-width: $pc) {
                     display: none;
                 }
             }
             &::before {
                 top: 0;
                 transform: translate(-200%, 50%);
-                @media (max-width: 1440px) {
+                @media (max-width: em(1440)) {
                     transform: translate(-300%, 50%);
                 }
             }
             &::after {
                 bottom: 0;
                 transform: translate(-100%, 0px);
-                @media (max-width: 1440px) {
+                @media (max-width: em(1440)) {
                     transform: translate(-200%, 0%);
                 }
             }
@@ -524,14 +512,13 @@
 
     &__list-label {
         @extend .link;
-        @include adaptiv-value("margin-bottom", 50, 20, 1);
+        @include adaptiveValue("margin-bottom", 50, 20, 1200, 479.98, 1);
     }
 
     &__list-item {
         @extend .text_sm;
-        @include adaptiv-value("margin-bottom", 20, 15, 1);
-        &:last-child {
-            margin: 0px 0px 0px 0px;
+        &:not(:last-child) {
+            @include adaptiveValue("margin-bottom", 20, 15, 1200, 479.98, 1);
         }
     }
 }
@@ -549,21 +536,21 @@
     &__column {
         flex: 0 1 50%;
         &:first-child {
-            padding: 100px 30px;
+            padding: rem(100) rem(30);
         }
         &:last-child {
             position: relative;
         }
-        @media (max-width: $md3+px) {
+        @media (max-width: $mobile) {
             flex: 1 1 100%;
             &:first-child {
-                padding: 0px 30px;
+                padding: 0px rem(30);
             }
             &:last-child {
                 display: none;
             }
         }
-        @media (max-width: $md4+px) {
+        @media (max-width: $mobileSmall) {
             &:first-child {
                 padding: 0;
             }
@@ -579,37 +566,33 @@
     }
 
     &__top {
-        @include adaptiv-value("margin-bottom", 100, 30, 1);
-        @media (max-width: $md3+px) {
+        @include adaptiveValue("margin-bottom", 100, 30, 1200, 479.98, 1);
+        @media (max-width: $mobile) {
             text-align: center;
         }
     }
 
     &__date {
-        @include adaptiv-value("margin-left", 76, 20, 1);
-        @media (max-width: $md3+px) {
+        @include adaptiveValue("margin-left", 76, 20, 1200, 479.98, 1);
+        @media (max-width: $mobile) {
             margin: 0;
         }
     }
 
     &__date-subtitle {
-        @include adaptiv-value("margin-top", -22, -15, 1);
-        @include adaptiv-value("margin-left", 217, 80, 1);
+        @include adaptiveValue("margin-top", -22, -15, 1200, 479.98, 1);
+        @include adaptiveValue("margin-left", 217, 80, 1200, 479.98, 1);
     }
 
     &__price {
-        @include adaptiv-value("margin-left", 198, 20, 1);
-        @media (max-width: $md3+px) {
-            margin: 0;
+        @media (min-width: $mobile) {
+            @include adaptiveValue("margin-left", 198, 20, 1200, 479.98, 1);
         }
     }
 
     &__price-subtitle {
-        @include adaptiv-value("margin-top", -22, -15, 1);
-        @include adaptiv-value("margin-left", 320, 80, 1);
-        @media (max-width: $md3+px) {
-            margin-left: 100px;
-        }
+        @include adaptiveValue("margin-top", -22, -15, 1200, 479.98, 1);
+        @include adaptiveValue("margin-left", 320, 100, 1200, 767.98, 1);
     }
 
     &__form {
@@ -618,27 +601,27 @@
 
     .form {
         &__error {
-            margin: 10px 0px 0px 0px;
+            margin-top: rem(10);
             @extend .text_sm;
         }
     }
     &__label {
         @extend .link;
-        @include adaptiv-value("margin-bottom", 50, 20, 1);
+        @include adaptiveValue("margin-bottom", 50, 20, 1200, 479.98, 1);
     }
 
     &__input-name {
-        @include adaptiv-value("margin-bottom", 20, 10, 1);
+        @include adaptiveValue("margin-bottom", 20, 10, 1200, 479.98, 1);
     }
 
     &__input-tel {
-        @include adaptiv-value("margin-bottom", 20, 10, 1);
+        @include adaptiveValue("margin-bottom", 20, 10, 1200, 479.98, 1);
     }
 
     &__btn {
-        padding: 0px 45px;
-        @media (max-width: $md4+px) {
-            padding: 0 20px;
+        padding: 0px rem(45);
+        @media (max-width: $mobileSmall) {
+            padding: 0 rem(20);
             width: 100%;
         }
     }

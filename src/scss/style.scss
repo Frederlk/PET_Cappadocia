@@ -19,7 +19,10 @@ $fontFamily: "Roboto Condensed";
 $fontSize: rem(14); // где 14(px) - размер шрифта по умолчанию из макета
 
 // Основные цвета
-$mainColor: #000; // Цвет шрифта по умолчанию
+$primary: #e2ab3f;
+$white: #fff;
+$black: #000;
+$mainColor: $black; // Цвет шрифта по умолчанию
 
 // НАСТРОЙКИ ===============================================================================================================================================================================================================================================================================================
 // Минимальная ширина страницы
@@ -137,27 +140,12 @@ body {
 @import "home";
 
 .page {
-    &__home {
-        @include adaptiv-value("margin-bottom", 200, 50, 1);
-    }
-
-    &__tail {
-        @include adaptiv-value("margin-bottom", 200, 50, 1);
-    }
-
-    &__trip {
-        @include adaptiv-value("margin-bottom", 200, 50, 1);
-    }
-
-    &__price {
-        @include adaptiv-value("margin-bottom", 200, 50, 1);
-    }
-
-    &__hotel {
-        @include adaptiv-value("margin-bottom", 200, 50, 1);
-    }
-
+    &__home,
+    &__tail,
+    &__trip,
+    &__price,
+    &__hotel,
     &__regist {
-        @include adaptiv-value("margin-bottom", 200, 50, 1);
+        @include adaptiveValue("margin-bottom", 200, 50, 1200, 479.98, 1);
     }
 }

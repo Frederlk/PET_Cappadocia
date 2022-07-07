@@ -7,28 +7,29 @@
             @@include('html/_header.htm',{})
             <main class="page">
                 <section class="page__home home">
-                    <div class="home__content">
-                        <div class="home__container _container">
+                    <div data-fullscreen class="home__content">
+                        <div class="home__container">
                             <div class="home__body">
                                 <h1 class="home__title">Cappadocia</h1>
                                 <div class="home__subtitle">Эксклюзивный тур</div>
                             </div>
                         </div>
-                        <div class="home__bg _ibg">
-                            <img src="img/bg.jpg" alt="" />
+                        <div data-fullscreen class="home__bg-ibg">
+                            <img src="@img/bg.jpg" alt="background" />
                         </div>
                     </div>
                 </section>
+
                 <section class="page__tail tail">
                     <div class="tail__top top-tail">
-                        <div class="top-tail__container _container">
+                        <div class="top-tail__container">
                             <h2 class="top-tail__title title">Fairy tail</h2>
                             <div class="top-tail__subtitle subtitle">Сказочная страна чудес</div>
                         </div>
                     </div>
                     <div class="tail__content">
                         <div class="tail__body body-tail">
-                            <div class="body-tail__container _container">
+                            <div class="body-tail__container">
                                 <div class="body-tail__inner">
                                     <p class="body-tail__text">
                                         Каппадокия - сказочная страна воздушных шаров, сырных домиков, разноцветных долин и
@@ -56,26 +57,29 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="tail__slider _swiper">
-                            <div class="tail__item _ibg">
-                                <img src="img/slider1/1.jpg" alt="" />
-                            </div>
-                            <div class="tail__item _ibg">
-                                <img src="img/slider1/2.jpg" alt="" />
-                            </div>
-                            <div class="tail__item _ibg">
-                                <img src="img/slider1/3.jpg" alt="" />
+                        <div class="tail__slider swiper">
+                            <div class="tail__wrapper swiper-wrapper">
+                                <div class="tail__item-ibg swiper-slide">
+                                    <img src="@img/slider1/1.jpg" alt="01" />
+                                </div>
+                                <div class="tail__item-ibg swiper-slide">
+                                    <img src="@img/slider1/2.jpg" alt="02" />
+                                </div>
+                                <div class="tail__item-ibg swiper-slide">
+                                    <img src="@img/slider1/3.jpg" alt="03" />
+                                </div>
                             </div>
                         </div>
                         <div class="tail__navigation">
-                            <div class="tail__arrow tail__arrow_prev _icon-arrow-prev"></div>
-                            <div class="tail__arrow tail__arrow_next _icon-arrow-next"></div>
+                            <button type="button" class="tail__arrow tail__arrow_prev _icon-arrow-prev"></button>
+                            <button type="button" class="tail__arrow tail__arrow_next _icon-arrow-next"></button>
                         </div>
                     </div>
                 </section>
+
                 <section class="page__trip trip">
                     <div class="trip__content content-trip">
-                        <div class="content-trip__container _container">
+                        <div class="content-trip__container">
                             <div class="content-trip__top">
                                 <h2 class="content-trip__title title">Our trip</h2>
                                 <div class="content-trip__subtitle subtitle">Маршрут</div>
@@ -108,38 +112,41 @@
                                     <li class="content-trip__item">Трансфер в Анкару</li>
                                     <li class="content-trip__item">Вылет в Киев</li>
                                 </ul>
-                                <a href="" class="content-trip__btn btn">ЗАБРОНИРОВАТЬ</a>
+                                <a href="#" class="content-trip__btn btn">ЗАБРОНИРОВАТЬ</a>
                             </div>
                         </div>
                     </div>
-                    <div data-da=".content-trip__container,992,1" class="trip__slider slider-trip">
-                        <div class="slider-trip__body _swiper">
-                            <div class="slider-trip__item _ibg">
-                                <img src="img/slider2/1.jpg" alt="" />
-                            </div>
-                            <div class="slider-trip__item _ibg">
-                                <img src="img/slider2/2.jpg" alt="" />
-                            </div>
-                            <div class="slider-trip__item _ibg">
-                                <img src="img/slider2/3.jpg" alt="" />
+                    <div data-da=".content-trip__container,991.98,1" class="trip__slider slider-trip">
+                        <div class="slider-trip__body swiper">
+                            <div class="slider-trip__wrapper swiper-wrapper">
+                                <div class="slider-trip__item-ibg swiper-slide">
+                                    <img src="@img/slider2/1.jpg" alt="01" />
+                                </div>
+                                <div class="slider-trip__item-ibg swiper-slide">
+                                    <img src="@img/slider2/2.jpg" alt="02" />
+                                </div>
+                                <div class="slider-trip__item-ibg swiper-slide">
+                                    <img src="@img/slider2/3.jpg" alt="03" />
+                                </div>
                             </div>
                         </div>
                         <div class="trip__navigation">
-                            <div class="trip__arrow trip__arrow_prev _icon-arrow-prev"></div>
-                            <div class="trip__arrow trip__arrow_next _icon-arrow-next"></div>
+                            <button type="button" class="trip__arrow trip__arrow_prev _icon-arrow-prev"></button>
+                            <button type="button" class="trip__arrow trip__arrow_next _icon-arrow-next"></button>
                         </div>
                     </div>
                 </section>
+
                 <section class="page__hotel hotel">
-                    <div class="hotel__container _container">
+                    <div class="hotel__container">
                         <div class="hotel__top">
                             <h2 class="hotel__title title">Hotel</h2>
                             <div class="hotel__subtitle subtitle">Sultan Cave Suites</div>
                         </div>
                         <div class="hotel__body">
                             <div class="hotel__column">
-                                <div class="hotel__image _ibg">
-                                    <img src="img/hotel/1.jpg" alt="" />
+                                <div class="hotel__image-ibg">
+                                    <img src="@img/hotel/1.jpg" alt="Отель" />
                                 </div>
                             </div>
                             <div class="hotel__column">
@@ -163,26 +170,26 @@
                                 <div class="hotel__gallery _gallery">
                                     <div class="hotel__gallery-row">
                                         <div class="hotel__gallery-column">
-                                            <a href="img/hotel/2.jpg" class="hotel__gallery-item _ibg">
-                                                <img src="img/hotel/2.jpg" alt="" />
+                                            <a href="@img/hotel/2.jpg" class="hotel__gallery-item-ibg">
+                                                <img src="@img/hotel/2.jpg" alt="Отель" />
                                             </a>
                                         </div>
                                         <div class="hotel__gallery-column">
-                                            <a href="img/hotel/3.jpg" class="hotel__gallery-item _ibg">
-                                                <img src="img/hotel/3.jpg" alt="" />
+                                            <a href="@img/hotel/3.jpg" class="hotel__gallery-item-ibg">
+                                                <img src="@img/hotel/3.jpg" alt="Отель" />
                                             </a>
                                         </div>
                                     </div>
 
                                     <div class="hotel__gallery-row">
                                         <div class="hotel__gallery-column">
-                                            <a href="img/hotel/4.jpg" class="hotel__gallery-item _ibg">
-                                                <img src="img/hotel/4.jpg" alt="" />
+                                            <a href="@img/hotel/4.jpg" class="hotel__gallery-item-ibg">
+                                                <img src="@img/hotel/4.jpg" alt="Отель" />
                                             </a>
                                         </div>
                                         <div class="hotel__gallery-column">
-                                            <a href="img/hotel/5.jpg" class="hotel__gallery-item _ibg">
-                                                <img src="img/hotel/5.jpg" alt="" />
+                                            <a href="@img/hotel/5.jpg" class="hotel__gallery-item-ibg">
+                                                <img src="@img/hotel/5.jpg" alt="Отель" />
                                             </a>
                                         </div>
                                     </div>
@@ -192,7 +199,7 @@
                     </div>
                 </section>
                 <section class="page__price price">
-                    <div class="price__container _container">
+                    <div class="price__container">
                         <div class="price__top">
                             <h2 class="price__title title">Price</h2>
                             <div class="price__subtitle subtitle">Стоимость услуг</div>
@@ -232,7 +239,7 @@
                     </div>
                 </section>
                 <section class="page__regist regist">
-                    <div class="regist__container _container">
+                    <div class="regist__container">
                         <div class="regist__content">
                             <div class="regist__column">
                                 <div class="regist__top">
@@ -247,28 +254,30 @@
                                         <input
                                             autocomplete="off"
                                             type="text"
-                                            name="form[]"
+                                            name="name"
                                             data-error="Ошибка"
-                                            data-value="Имя"
-                                            class="input _req"
+                                            placeholder="Имя"
+                                            data-required=""
+                                            class="input"
                                         />
                                     </div>
                                     <div class="regist__input-tel">
                                         <input
                                             autocomplete="off"
-                                            type="tel"
-                                            name="form[]"
+                                            type="text"
+                                            name="phone"
                                             data-error="Ошибка"
-                                            data-value="Телефон"
-                                            class="input _req _phone"
+                                            placeholder="Телефон"
+                                            data-required="phone"
+                                            class="input"
                                         />
                                     </div>
                                     <button type="submit" class="regist__btn form__btn btn">Оставить заявку</button>
                                 </form>
                             </div>
                             <div class="regist__column">
-                                <div class="regist__image _ibg">
-                                    <img src="img/price.jpg" alt="" />
+                                <div class="regist__image-ibg">
+                                    <img src="@img/price.jpg" alt="Каппадокия" />
                                 </div>
                             </div>
                         </div>
@@ -277,6 +286,6 @@
             </main>
             @@include('html/_footer.htm',{})
         </div>
-        @@include('html/_popup.htm',{}) @@include('html/_js.htm',{})
+        @@include('html/_js.htm',{})
     </body>
 </html>

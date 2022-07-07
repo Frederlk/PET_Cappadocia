@@ -1,27 +1,27 @@
 //<ОСНОВНОЙ БЛОК>====================================================================================================
 .link {
-    font-size: 24px;
-    line-height: 28 / 24 * 100%;
-    color: #000;
+    font-size: rem(24);
+    line-height: math.div(28, 24);
+    color: $mainColor;
 }
 
 .title {
     font-family: "Balqis";
-    @include adaptiv-font(96, 55, 1);
-    line-height: 128 / 96 * 100%;
-    color: #e2ab3f;
+    @include adaptiveValue("font-size", 96, 55, 1200, 479.98, 1);
+    line-height: math.div(128, 96);
+    color: $primary;
 }
 
 .subtitle {
     font-style: italic;
     font-weight: 300;
     @extend .link;
-    @include adaptiv-font(24, 18, 1);
+    @include adaptiveValue("font-size", 24, 18, 991.98, 479.98, 1);
 }
 
 .text_sm {
     font-weight: 300;
-    font-size: 18px;
-    line-height: 21 / 18 * 100%;
-    color: #000000;
+    font-size: rem(18);
+    line-height: math.div(21, 18);
+    color: $mainColor;
 }

@@ -16,14 +16,14 @@
     }
 
     &__body {
-        @include adaptiv-value("margin-top", 96, 00, 1);
+        @include adaptiveValue("margin-top", 96, 40, 1200, 479.98, 1);
         display: flex;
     }
 
     &__column {
         display: flex;
         justify-content: center;
-        height: 527px;
+        height: rem(527);
         &:last-child {
             align-items: center;
             flex: 0 0 50%;
@@ -31,18 +31,18 @@
         &:first-child {
             flex: 0 1 50%;
             position: relative;
-            margin: 0px 20px 0px 0px;
+            margin-right: rem(20);
             &::after {
                 content: "";
                 position: absolute;
                 width: 100%;
-                height: 527px;
+                height: rem(527);
                 top: 0;
                 left: 0;
-                background: url("../img/Balloons/balloon3.png") 50% 0 no-repeat;
+                background: url("@img/Balloons/balloon3.png") 50% 0 no-repeat;
             }
         }
-        @media (max-width: 785px) {
+        @media (max-width: em(785)) {
             &:last-child {
                 display: none;
             }
@@ -51,7 +51,7 @@
                 margin: 0;
             }
         }
-        @media (max-width: 375px) {
+        @media (max-width: em(375)) {
             &::after {
                 transform: scale(0.8);
             }
@@ -59,30 +59,28 @@
     }
 
     &__balloon {
-        width: 356px;
+        width: rem(356);
         position: relative;
         z-index: 2;
-        @media (max-width: $md4+px) {
+        @media (max-width: $mobileSmall) {
             width: 100%;
         }
     }
 
     &__title {
         font-family: "Balqis";
-        line-height: 115 / 86 * 100%;
-        @include adaptiv-font(86, 56, 1);
-        color: #000000;
+        line-height: math.div(115, 86);
+        @include adaptiveValue("font-size", 86, 56, 1200, 479.98, 1);
+        color: $mainColor;
     }
 
-    &__bg {
+    &__bg-ibg {
         position: absolute;
         width: 100%;
         height: 100%;
         top: 0;
         left: 0;
         min-height: 100vh;
-        img {
-        }
     }
 }
 
@@ -91,79 +89,59 @@
     &__title {
         display: inline-flex;
         justify-content: center;
-        margin: 70px 0px 40px 0px;
-        color: #e2ab3f;
+        margin-top: rem(70);
+        margin-bottom: rem(20);
+        color: $primary;
         font-family: "Balqis";
-        @include adaptiv-font(86, 56, 1);
-        @media (max-width: $md4+px) {
-            margin: 90px 0px 20px 0px;
+        @include adaptiveValue("font-size", 86, 56, 1200, 479.98, 1);
+        @media (max-width: $mobileSmall) {
+            margin-top: rem(90);
+            margin-bottom: rem(20);
         }
     }
 
-    &__tel {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        &::before {
-            display: inline-flex;
-            color: #e2ab3f;
-            margin: 0px 10px 0px 0px;
-            transition: all 0.3s ease 0s;
-            font-size: 30px;
-        }
-        margin: 0px 0px 20px 0px;
-        @extend .text_sm;
-        @media (min-width: $md2+px) {
-            &:hover {
-                &::before {
-                    color: #000;
-                }
-            }
-        }
-    }
-
+    &__tel,
     &__email {
         display: flex;
         align-items: center;
         justify-content: center;
+        margin-bottom: rem(20);
+        @extend .text_sm;
         &::before {
             display: inline-flex;
-            margin: 0px 10px 0px 0px;
-            font-size: 30px;
-            transition: all 0.3s ease 0s;
+            color: $primary;
+            margin-right: rem(10);
+            transition: color 0.3s ease 0s;
+            font-size: rem(30);
         }
-        margin: 0px 0px 20px 0px;
-        @extend .text_sm;
-        @media (min-width: $md2+px) {
+        @media (any-hover: hover) {
             &:hover {
                 &::before {
-                    color: #000;
+                    color: $mainColor;
                 }
             }
         }
     }
 
     &__social {
-        margin: 20px 0px 0px 0px;
+        margin-top: rem(20);
+        font-size: rem(30);
         display: flex;
         justify-content: center;
         align-items: center;
-
-        font-size: 30px;
     }
 
     &__social-item {
-        margin: 0px 15px 0px 0px;
         &::before {
-            transition: all 0.3s ease 0s;
+            transition: color 0.3s ease 0s;
         }
-        &:last-child {
-            margin: 0px 0px 0px 0px;
+        &:not(:last-child) {
+            margin-right: rem(15);
         }
-        @media (min-width: $md2+px) {
+        @media (any-hover: hover) {
             &:hover {
                 &::before {
-                    color: #000;
+                    color: $mainColor;
                 }
             }
         }

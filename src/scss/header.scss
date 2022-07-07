@@ -6,16 +6,14 @@
     left: 0;
     z-index: 100;
     transition: all 0.8s ease 0s;
-    @include adaptiv-value("margin-top", 70, 20, 1);
-    @media (max-height: 450px) {
-        margin-top: 20px;
-    }
+    @include adaptiveValue("margin-top", 70, 20, 1200, 450, 1);
     &._scroll {
-        padding: 5px 0px;
+        padding: rem(5) 0px;
         background-color: rgba(255, 255, 255, 0.9);
-        box-shadow: 0 0 10px rgba(255, 255, 255, 1);
-        margin: 0px 0px 0px 0px;
+        box-shadow: 0 0 rem(1) $white;
+        margin: 0;
     }
+
     &__content {
         display: flex;
         justify-content: space-between;
@@ -32,7 +30,7 @@
         @extend .link;
         display: flex;
         align-items: center;
-        @media (min-width: $md2+px) {
+        @media (any-hover: hover) {
             &:hover {
                 span {
                     text-decoration: underline;
@@ -40,10 +38,10 @@
             }
         }
         &::before {
-            font-size: 30px;
-            margin: 0px 10px 0px 0px;
+            font-size: rem(30);
+            margin-right: rem(10);
         }
-        @media (max-width: 620px) {
+        @media (max-width: em(620)) {
             &::before {
                 margin: 0;
             }
@@ -53,26 +51,27 @@
         }
     }
 }
+
 .menu {
     &__icon {
     }
 
     &__body {
-        @media (max-width: 620px) {
+        @media (max-width: em(620)) {
             opacity: 0;
             visibility: hidden;
             transform: translate(0px, -100%);
-            padding: 100px 10px 40px 10px;
+            padding: rem(100) rem(15) rem(40) rem(10);
             position: fixed;
             z-index: 2;
-            top: 0px;
+            top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             overflow: auto;
             transition: all 0.5s ease 0s;
-            background-color: #ffffff;
-            &._active {
+            background-color: $white;
+            .menu-open & {
                 transform: translate(0px, 0px);
                 visibility: visible;
                 opacity: 0.98;
@@ -82,126 +81,73 @@
 
     &__list {
         display: flex;
-        li {
-            @include adaptiv-value("margin-right", 50, 30, 1);
-            &:last-child {
-                margin: 0px 0px 0px 0px;
-            }
-            @media (max-width: 620px) {
-                margin: 0px 0px 30px 0px;
-            }
+        @include adaptiveValue("gap", 50, 30, 1200, 620, 1);
+        @media (max-width: em(620)) {
+            flex-direction: column;
+            align-items: center;
         }
-        @media (max-width: 620px) {
-            display: block;
-            text-align: center;
-        }
+    }
+
+    &__item {
     }
 
     &__link {
         @extend .link;
         text-decoration: none;
-        @media (min-width: $md2+px) {
+        @media (any-hover: hover) {
             &:hover {
                 text-decoration: underline;
             }
         }
-        @media (max-width: 620px) {
-            font-size: 28px;
-        }
-    }
-}
-.icon-menu {
-    display: none;
-    @media (max-width: 620px) {
-        display: block;
-        position: relative;
-        top: 0;
-        right: 0px;
-        width: 30px;
-        height: 25px;
-        cursor: pointer;
-        z-index: 5;
-        span {
-            transition: all 0.3s ease 0s;
-            top: calc(50% - 1px);
-            left: 0px;
-            position: absolute;
-            width: 100%;
-            height: 3px;
-            background-color: #000;
-            &:first-child {
-                top: 0px;
-            }
-            &:last-child {
-                top: auto;
-                bottom: 0px;
-            }
-        }
-        &._active {
-            span {
-                transform: scale(0);
-                &:first-child {
-                    transform: rotate(-45deg);
-                    top: calc(50% - 1.5px);
-                }
-                &:last-child {
-                    transform: rotate(45deg);
-                    bottom: calc(50% - 1.5px);
-                }
-            }
+        @media (max-width: em(620)) {
+            font-size: rem(28);
         }
     }
 }
 
 //====================================================================================================
 
-//Burger
-/*
 .icon-menu {
-	display: none;
-	@media (max-width: $mobile) {
-		display: block;
-		position: relative;
-		width: rem(30);
-		height: rem(18);
-		cursor: pointer;
-		z-index: 5;
-		span,
-		&::before,
-		&::after {
-			content: "";
-			transition: all 0.3s ease 0s;
-			right: 0;
-			position: absolute;
-			width: 100%;
-			height: rem(2);
-			background-color: #000;
-		}
-		&::before {
-			top: 0;
-		}
-		&::after {
-			bottom: 0;
-		}
-		span {
-			top: calc(50% - rem(1));
-		}
-		.menu-open & {
-			span {
-				width: 0;
-			}
-			&::before,
-			&::after {
-			}
-			&::before {
-				top: calc(50% - rem(1));
-				transform: rotate(-45deg);
-			}
-			&::after {
-				bottom: calc(50% - rem(1));
-				transform: rotate(45deg);
-			}
-		}
-	}
+    display: none;
+    @media (max-width: em(620)) {
+        display: block;
+        position: relative;
+        width: rem(30);
+        height: rem(25);
+        cursor: pointer;
+        z-index: 5;
+        span,
+        &::before,
+        &::after {
+            content: "";
+            transition: all 0.3s ease 0s;
+            right: 0;
+            position: absolute;
+            width: 100%;
+            height: rem(2);
+            background-color: $black;
+        }
+        &::before {
+            top: 0;
+        }
+        &::after {
+            bottom: 0;
+        }
+        span {
+            top: calc(50% - rem(1));
+        }
+        .menu-open & {
+            span {
+                width: 0;
+            }
+            &::before {
+                top: calc(50% - rem(1));
+                transform: rotate(-45deg);
+            }
+            &::after {
+                bottom: calc(50% - rem(1));
+                transform: rotate(45deg);
+            }
+        }
+    }
 }
-*/

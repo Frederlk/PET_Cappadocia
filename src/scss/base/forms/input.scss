@@ -9,26 +9,23 @@ textarea {
     appearance: none;
 }
 .input {
-    border-radius: 0 !important;
-    width: 383px;
+    width: rem(383);
     @extend .text_sm;
-    height: 50px;
+    height: rem(50);
     display: inline-flex;
     align-items: center;
-    padding: 0px 30px;
-    background-color: #fff;
-    border: 1px solid #e2ab3f;
+    padding: 0px rem(10);
+    background-color: $white;
+    border: rem(1) solid $primary;
     @media (max-width: $mobileSmall) {
         width: 100%;
     }
+
     &._form-focus {
     }
+
     &._form-error {
-        border: 1px solid red;
+        border: rem(1) solid red;
         color: red;
     }
-}
-textarea.input {
-    resize: none;
-    padding: 0px 0px;
 }
