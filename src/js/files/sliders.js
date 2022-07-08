@@ -27,10 +27,10 @@ import "../../scss/base/swiper.scss";
 function initSliders() {
     // Перечень слайдеров
     // Проверяем, есть ли слайдер на стронице
-    if (document.querySelector(".tail__slider")) {
+    if (document.querySelector(".tail__swiper")) {
         // Указываем скласс нужного слайдера
         // Создаем слайдер
-        new Swiper(".tail__slider", {
+        new Swiper(".tail__swiper", {
             // Указываем скласс нужного слайдера
             // Подключаем модули слайдера
             // для конкретного случая

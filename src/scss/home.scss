@@ -1,14 +1,8 @@
 .home {
     position: relative;
-    &__content {
-        display: flex;
-        flex-direction: column;
-    }
 
     &__container {
-        flex: 1 1 auto;
         position: relative;
-        width: 100%;
         z-index: 2;
         display: flex;
         justify-content: center;
@@ -71,35 +65,47 @@
     }
 
     &__slider {
-        position: relative;
-        order: 1;
         flex: 1 1 100%;
-        min-height: 50vh;
-        margin-bottom: rem(30);
+        position: relative;
+        min-width: 0;
         @media (min-width: $tablet) {
             margin: 0;
             flex: 0 0 50%;
         }
-        .swiper-wrapper {
+    }
+
+    &__swiper {
+        @media (min-width: $tablet) {
+            height: 100%;
+        }
+    }
+
+    &__wrapper {
+        @media (min-width: $tablet) {
+            height: 100% !important;
         }
     }
 
     &__item-ibg {
-        height: 100%;
+        @media (min-width: $tablet) {
+            height: 100% !important;
+        }
+        @media (max-width: $tablet) {
+            min-height: 50vh;
+        }
     }
 
     &__navigation {
         padding: 0px rem(23);
         position: absolute;
-        width: 50%;
+        width: 100%;
         top: 50%;
         transform: translate(0px, -50%);
         left: 0;
         display: flex;
         justify-content: space-between;
         @media (max-width: $tablet) {
-            top: 25vh;
-            padding: 0px rem(10);
+            padding: 0px rem(15);
             width: 100%;
         }
     }
@@ -138,6 +144,9 @@
 }
 .body-tail {
     order: 2;
+    @media (max-width: $tablet) {
+        margin-top: rem(30);
+    }
     @media (min-width: $tablet) {
         transform: translate(-50%, 0px);
         flex: 0 0 100%;
@@ -223,7 +232,9 @@
 }
 
 .content-trip {
-    order: 2;
+    @media (max-width: $tablet) {
+        order: 2;
+    }
     &__container {
     }
 
@@ -246,19 +257,18 @@
     }
 
     &__body {
-        padding-right: rem(55);
-        width: 50%;
+        @media (min-width: $tablet) {
+            padding-right: rem(55);
+            width: 50%;
+        }
         @media (max-width: $tablet) {
-            width: 100%;
-            padding: 0;
             display: flex;
+            justify-content: center;
             flex-wrap: wrap;
             margin: 0px rem(-10);
-            justify-content: center;
         }
-        @media (max-width: $mobile) {
+        @media (max-width: em(630)) {
             margin: 0;
-            justify-content: flex-start;
         }
     }
 
@@ -269,7 +279,7 @@
             flex: 0 1 50%;
             padding: 0px rem(10);
         }
-        @media (max-width: $mobile) {
+        @media (max-width: em(630)) {
             flex: 1 1 100%;
             padding: 0;
         }
@@ -291,14 +301,18 @@
 }
 
 .slider-trip {
-    order: 1;
     min-width: 0;
     @media (max-width: $tablet) {
+        order: 1;
         margin-bottom: rem(20);
     }
     &__body {
         position: relative;
         height: 100%;
+        @media (max-width: $tablet) {
+            margin: 0px rem(-15);
+            max-width: 100vw;
+        }
         .swiper-wrapper {
             height: 100% !important;
         }
@@ -350,7 +364,7 @@
         }
     }
 
-    &__image {
+    &__image-ibg {
         position: absolute;
         width: 100%;
         height: 100%;
@@ -358,53 +372,34 @@
         left: 0;
     }
     &__info {
+        @include adaptiveValue("margin-bottom", 80, 40, 1200, 479.98, 1);
     }
 
     &__text {
-        @include adaptiveValue("margin-bottom", 20, 10, 1200, 479.98, 1);
         @extend .text_sm;
-        &:last-child {
-            @include adaptiveValue("margin-bottom", 30, 10, 1200, 479.98, 1);
+        &:not(:last-child) {
+            @include adaptiveValue("margin-bottom", 20, 10, 1200, 479.98, 1);
         }
     }
 
     &__gallery {
-        display: flex;
-        flex-wrap: wrap;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        @include adaptiveValue("row-gap", 50, 10, 991.98, 479.98, 1);
+        @include adaptiveValue("column-gap", 40, 10, 991.98, 479.98, 1);
     }
 
-    &__gallery-row {
-        display: flex;
-        flex: 1 1 100%;
-        justify-content: space-between;
-        @include adaptiveValue("margin-top", 50, 10, 1200, 479.98, 1);
-    }
-
-    &__gallery-column {
-        position: relative;
-        padding-bottom: 25%;
-        flex: 0 1 rem(280);
-        min-height: rem(120);
+    &__gallery-item-ibg {
+        height: rem(150);
         overflow: hidden;
-        &:not(:last-child) {
-            margin-bottom: rem(10);
+        img {
+            transition: transform 0.5s ease 0s;
         }
-        @media (max-width: $mobile) {
-            flex: 0 1 50%;
-            padding-bottom: 30%;
-        }
-    }
-
-    &__gallery-item {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        top: 0;
-        left: 0;
-        transition: transform 0.5s ease 0s;
         @media (any-hover: hover) {
             &:hover {
-                transform: scale(1.1);
+                img {
+                    transform: scale(1.1);
+                }
             }
         }
     }
@@ -440,10 +435,15 @@
     }
 
     &__footer {
-        display: flex;
         position: relative;
-        @media (max-width: $mobile) {
-            flex-wrap: wrap;
+        display: grid;
+        grid-template-columns: percent(530, 1200) percent(370, 1200);
+        @include adaptiveValue("gap", 70, 30, 1200, 767.98, 1);
+        @media (max-width: $tablet) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        @media (max-width: em(630)) {
+            grid-template-columns: 1fr;
         }
         &::after {
             content: "";
@@ -463,20 +463,7 @@
         }
     }
 
-    &__column {
-        flex: 0 1 50%;
-        @include adaptiveValue("padding-right", 70, 0, 0);
-        @media (max-width: $tablet) {
-            &:last-child {
-                padding: 0;
-            }
-        }
-        @media (max-width: $mobile) {
-            flex: 1 1 100%;
-            &:not(:last-child) {
-                margin-bottom: rem(40);
-            }
-        }
+    &__list {
         &:last-child {
             position: relative;
             &::before,
@@ -485,46 +472,40 @@
                 position: absolute;
                 width: rem(73);
                 height: rem(108);
-                right: 0;
+                left: 100%;
                 background: url("@img/Balloons/balloon1.png") 0 0 no-repeat;
                 @media (max-width: $pc) {
                     display: none;
                 }
             }
             &::before {
-                top: 0;
-                transform: translate(-200%, 50%);
+                top: rem(52);
+                transform: translate(rem(13), 0px);
                 @media (max-width: em(1440)) {
-                    transform: translate(-300%, 50%);
+                    transform: translate(rem(-50), 0px);
                 }
             }
             &::after {
-                bottom: 0;
-                transform: translate(-100%, 0px);
+                transform: translate(rem(86), 0px);
+                top: rem(220);
                 @media (max-width: em(1440)) {
-                    transform: translate(-200%, 0%);
+                    transform: translate(rem(0), 0px);
                 }
             }
         }
     }
 
-    &__body {
-        position: relative;
-        z-index: 2;
-    }
-
-    &__list {
-    }
-
     &__list-label {
         @extend .link;
-        @include adaptiveValue("margin-bottom", 50, 20, 1200, 479.98, 1);
+        @include adaptiveValue("margin-bottom", 50, 15, 1200, 767.98, 1);
     }
 
     &__list-item {
+        position: relative;
+        z-index: 2;
         @extend .text_sm;
         &:not(:last-child) {
-            @include adaptiveValue("margin-bottom", 20, 15, 1200, 479.98, 1);
+            @include adaptiveValue("margin-bottom", 20, 15, 1200, 767.98, 1);
         }
     }
 }
@@ -533,42 +514,26 @@
 
 .regist {
     &__container {
+        @media (min-width: $mobile) {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+        }
     }
 
     &__content {
-        display: flex;
-    }
-
-    &__column {
-        flex: 0 1 50%;
-        &:first-child {
+        @media (min-width: $mobile) {
             padding: rem(100) rem(30);
         }
-        &:last-child {
-            position: relative;
-        }
-        @media (max-width: $mobile) {
-            flex: 1 1 100%;
-            &:first-child {
-                padding: 0px rem(30);
-            }
-            &:last-child {
-                display: none;
-            }
-        }
-        @media (max-width: $mobileSmall) {
-            &:first-child {
-                padding: 0;
-            }
-        }
     }
 
-    &__image {
-        position: absolute;
-        width: 100%;
+    &__image-ibg {
         height: 100%;
-        top: 0;
-        left: 0;
+        @media (max-width: $pc) {
+            margin-right: rem(-15);
+        }
+        @media (max-width: $mobile) {
+            display: none;
+        }
     }
 
     &__top {

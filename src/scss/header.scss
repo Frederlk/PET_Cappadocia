@@ -7,10 +7,10 @@
     z-index: 100;
     transition: all 0.8s ease 0s;
     @include adaptiveValue("margin-top", 70, 20, 1200, 450, 1);
-    &._scroll {
+    &._header-scroll {
         padding: rem(5) 0px;
         background-color: rgba(255, 255, 255, 0.9);
-        box-shadow: 0 0 rem(1) $white;
+        box-shadow: 0 0 rem(10) $white;
         margin: 0;
     }
 

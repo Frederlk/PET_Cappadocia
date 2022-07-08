@@ -1,77 +1,25 @@
 .footer {
-    position: relative !important;
-    &__content {
-        flex-direction: column;
-        display: flex;
-        min-height: 100vh;
-    }
-
+    position: relative;
     &__container {
-        flex: 1 1 auto;
-        position: relative;
-        z-index: 2;
-        width: 100%;
-        bottom: 0;
-        left: 0;
-    }
-
-    &__body {
         @include adaptiveValue("margin-top", 96, 40, 1200, 479.98, 1);
         display: flex;
-    }
-
-    &__column {
-        display: flex;
-        justify-content: center;
-        height: rem(527);
-        &:last-child {
-            align-items: center;
-            flex: 0 0 50%;
-        }
-        &:first-child {
-            flex: 0 1 50%;
-            position: relative;
-            margin-right: rem(20);
-            &::after {
-                content: "";
-                position: absolute;
-                width: 100%;
-                height: rem(527);
-                top: 0;
-                left: 0;
-                background: url("@img/Balloons/balloon3.png") 50% 0 no-repeat;
-            }
-        }
-        @media (max-width: em(785)) {
-            &:last-child {
-                display: none;
-            }
-            &:first-child {
-                flex: 1 1 100%;
-                margin: 0;
-            }
-        }
-        @media (max-width: em(375)) {
-            &::after {
-                transform: scale(0.8);
-            }
-        }
+        align-items: center;
+        justify-content: space-between;
+        gap: rem(20);
     }
 
     &__balloon {
-        width: rem(356);
-        position: relative;
-        z-index: 2;
-        @media (max-width: $mobileSmall) {
-            width: 100%;
-        }
     }
 
     &__title {
+        position: relative;
+        z-index: 2;
+        flex: 0 1 rem(595);
         font-family: "Balqis";
         line-height: math.div(115, 86);
         @include adaptiveValue("font-size", 86, 56, 1200, 479.98, 1);
         color: $mainColor;
+        margin-left: rem(20);
     }
 
     &__bg-ibg {
@@ -85,7 +33,14 @@
 }
 
 .balloon {
+    flex: 0 0 rem(356);
+    @include adaptiveValue("margin-left", 120, 0, 1200, 767.98, 1);
     text-align: center;
+    position: relative;
+    z-index: 2;
+    &__img {
+    }
+
     &__title {
         display: inline-flex;
         justify-content: center;

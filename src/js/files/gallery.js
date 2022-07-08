@@ -34,7 +34,6 @@ import "@scss/libs/gallery/lightgallery.scss";
 // Все стили
 // import '@scss/libs/gallery/lightgallery-bundle.scss';
 
-// Запуск
 const galleries = document.querySelectorAll("[data-gallery]");
 if (galleries.length) {
     let galleyItems = [];
@@ -48,6 +47,4 @@ if (galleries.length) {
             }),
         });
     });
-    // Добавляем в объект модулей
-    flsModules.gallery = galleyItems;
 }

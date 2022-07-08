@@ -1,22 +1,20 @@
 <!DOCTYPE html>
 <html lang="ru">
-    @@include('html/_head.htm',{ "title":"Главная" })
+    @@include('html/_head.htm',{ "title":"Cappadocia" })
 
     <body>
         <div class="wrapper">
             @@include('html/_header.htm',{})
             <main class="page">
                 <section class="page__home home">
-                    <div data-fullscreen class="home__content">
-                        <div class="home__container">
-                            <div class="home__body">
-                                <h1 class="home__title">Cappadocia</h1>
-                                <div class="home__subtitle">Эксклюзивный тур</div>
-                            </div>
+                    <div data-fullscreen class="home__container">
+                        <div class="home__body">
+                            <h1 class="home__title">Cappadocia</h1>
+                            <div class="home__subtitle">Эксклюзивный тур</div>
                         </div>
-                        <div data-fullscreen class="home__bg-ibg">
-                            <img src="@img/bg.jpg" alt="background" />
-                        </div>
+                    </div>
+                    <div data-fullscreen class="home__bg-ibg">
+                        <img src="@img/bg.jpg" alt="background" />
                     </div>
                 </section>
 
@@ -57,22 +55,24 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="tail__slider swiper">
-                            <div class="tail__wrapper swiper-wrapper">
-                                <div class="tail__item-ibg swiper-slide">
-                                    <img src="@img/slider1/1.jpg" alt="01" />
-                                </div>
-                                <div class="tail__item-ibg swiper-slide">
-                                    <img src="@img/slider1/2.jpg" alt="02" />
-                                </div>
-                                <div class="tail__item-ibg swiper-slide">
-                                    <img src="@img/slider1/3.jpg" alt="03" />
+                        <div class="tail__slider">
+                            <div class="tail__swiper swiper">
+                                <div class="tail__wrapper swiper-wrapper">
+                                    <div class="tail__item-ibg swiper-slide">
+                                        <img src="@img/slider1/1.jpg" alt="01" />
+                                    </div>
+                                    <div class="tail__item-ibg swiper-slide">
+                                        <img src="@img/slider1/2.jpg" alt="02" />
+                                    </div>
+                                    <div class="tail__item-ibg swiper-slide">
+                                        <img src="@img/slider1/3.jpg" alt="03" />
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="tail__navigation">
-                            <button type="button" class="tail__arrow tail__arrow_prev _icon-arrow-prev"></button>
-                            <button type="button" class="tail__arrow tail__arrow_next _icon-arrow-next"></button>
+                            <div class="tail__navigation">
+                                <button type="button" class="tail__arrow tail__arrow_prev _icon-arrow-prev"></button>
+                                <button type="button" class="tail__arrow tail__arrow_next _icon-arrow-next"></button>
+                            </div>
                         </div>
                     </div>
                 </section>
@@ -167,37 +167,25 @@
                                         полюбоваться закатом солнца над деревней.
                                     </p>
                                 </div>
-                                <div class="hotel__gallery _gallery">
-                                    <div class="hotel__gallery-row">
-                                        <div class="hotel__gallery-column">
-                                            <a href="@img/hotel/2.jpg" class="hotel__gallery-item-ibg">
-                                                <img src="@img/hotel/2.jpg" alt="Отель" />
-                                            </a>
-                                        </div>
-                                        <div class="hotel__gallery-column">
-                                            <a href="@img/hotel/3.jpg" class="hotel__gallery-item-ibg">
-                                                <img src="@img/hotel/3.jpg" alt="Отель" />
-                                            </a>
-                                        </div>
-                                    </div>
-
-                                    <div class="hotel__gallery-row">
-                                        <div class="hotel__gallery-column">
-                                            <a href="@img/hotel/4.jpg" class="hotel__gallery-item-ibg">
-                                                <img src="@img/hotel/4.jpg" alt="Отель" />
-                                            </a>
-                                        </div>
-                                        <div class="hotel__gallery-column">
-                                            <a href="@img/hotel/5.jpg" class="hotel__gallery-item-ibg">
-                                                <img src="@img/hotel/5.jpg" alt="Отель" />
-                                            </a>
-                                        </div>
-                                    </div>
+                                <div data-gallery class="hotel__gallery">
+                                    <a href="@img/hotel/2.jpg" class="hotel__gallery-item-ibg">
+                                        <img src="@img/hotel/2.jpg" alt="Отель" />
+                                    </a>
+                                    <a href="@img/hotel/3.jpg" class="hotel__gallery-item-ibg">
+                                        <img src="@img/hotel/3.jpg" alt="Отель" />
+                                    </a>
+                                    <a href="@img/hotel/4.jpg" class="hotel__gallery-item-ibg">
+                                        <img src="@img/hotel/4.jpg" alt="Отель" />
+                                    </a>
+                                    <a href="@img/hotel/5.jpg" class="hotel__gallery-item-ibg">
+                                        <img src="@img/hotel/5.jpg" alt="Отель" />
+                                    </a>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </section>
+
                 <section class="page__price price">
                     <div class="price__container">
                         <div class="price__top">
@@ -205,81 +193,68 @@
                             <div class="price__subtitle subtitle">Стоимость услуг</div>
                         </div>
                         <div class="price__footer">
-                            <div class="price__column">
-                                <div class="price__body">
-                                    <ul class="price__list">
-                                        <div class="price__list-label">Включено</div>
-                                        <li class="price__list-item">Проживание в двухместном номере в отеле с завтраками</li>
-                                        <li class="price__list-item">
-                                            Индивидуальный трансфер для нашей группы из Анкары и обратно
-                                        </li>
-                                        <li class="price__list-item">Экскурсия на Солёное озеро</li>
-                                        <li class="price__list-item">
-                                            Индивидуальная дневная экскурсия по лучшим местам Каппадокии с личным транспортом
-                                        </li>
-                                        <li class="price__list-item">
-                                            Фотосессия с профессиональным фотографом для каждой участницы (Несколько локаций, 5
-                                            лучших фото в обработке фотографа и весь материал (до 100 фотографий)
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="price__column">
-                                <div class="price__body">
-                                    <ul class="price__list">
-                                        <div class="price__list-label">Не включено</div>
-                                        <li class="price__list-item">Авиа Киев-Анкара-Киев (140-170$)</li>
-                                        <li class="price__list-item">Обеды и ужины (150$ на поездку)</li>
-                                        <li class="price__list-item">Воздушный шар 200$</li>
-                                        <li class="price__list-item">Дополнительные экскурсии (по желанию) от 30$</li>
-                                    </ul>
-                                </div>
-                            </div>
+                            <ul class="price__list">
+                                <div class="price__list-label">Включено</div>
+                                <li class="price__list-item">Проживание в двухместном номере в отеле с завтраками</li>
+                                <li class="price__list-item">Индивидуальный трансфер для нашей группы из Анкары и обратно</li>
+                                <li class="price__list-item">Экскурсия на Солёное озеро</li>
+                                <li class="price__list-item">
+                                    Индивидуальная дневная экскурсия по лучшим местам Каппадокии с личным транспортом
+                                </li>
+                                <li class="price__list-item">
+                                    Фотосессия с профессиональным фотографом для каждой участницы (Несколько локаций, 5 лучших
+                                    фото в обработке фотографа и весь материал (до 100 фотографий)
+                                </li>
+                            </ul>
+                            <ul class="price__list">
+                                <div class="price__list-label">Не включено</div>
+                                <li class="price__list-item">Авиа Киев-Анкара-Киев (140-170$)</li>
+                                <li class="price__list-item">Обеды и ужины (150$ на поездку)</li>
+                                <li class="price__list-item">Воздушный шар 200$</li>
+                                <li class="price__list-item">Дополнительные экскурсии (по желанию) от 30$</li>
+                            </ul>
                         </div>
                     </div>
                 </section>
+
                 <section class="page__regist regist">
                     <div class="regist__container">
                         <div class="regist__content">
-                            <div class="regist__column">
-                                <div class="regist__top">
-                                    <h3 class="regist__date title">1.07.2020</h3>
-                                    <div class="regist__date-subtitle subtitle">Ближайшая дата тура</div>
-                                    <h3 class="regist__price title">490$</h3>
-                                    <div class="regist__price-subtitle subtitle">Стоимость</div>
-                                </div>
-                                <form class="regist__form">
-                                    <div class="regist__label">Оставить заявку или задать вопрос</div>
-                                    <div class="regist__input-name">
-                                        <input
-                                            autocomplete="off"
-                                            type="text"
-                                            name="name"
-                                            data-error="Ошибка"
-                                            placeholder="Имя"
-                                            data-required=""
-                                            class="input"
-                                        />
-                                    </div>
-                                    <div class="regist__input-tel">
-                                        <input
-                                            autocomplete="off"
-                                            type="text"
-                                            name="phone"
-                                            data-error="Ошибка"
-                                            placeholder="Телефон"
-                                            data-required="phone"
-                                            class="input"
-                                        />
-                                    </div>
-                                    <button type="submit" class="regist__btn form__btn btn">Оставить заявку</button>
-                                </form>
+                            <div class="regist__top">
+                                <h3 class="regist__date title">1.07.2020</h3>
+                                <div class="regist__date-subtitle subtitle">Ближайшая дата тура</div>
+                                <h3 class="regist__price title">490$</h3>
+                                <div class="regist__price-subtitle subtitle">Стоимость</div>
                             </div>
-                            <div class="regist__column">
-                                <div class="regist__image-ibg">
-                                    <img src="@img/price.jpg" alt="Каппадокия" />
+                            <form class="regist__form">
+                                <div class="regist__label">Оставить заявку или задать вопрос</div>
+                                <div class="regist__input-name">
+                                    <input
+                                        autocomplete="off"
+                                        type="text"
+                                        name="name"
+                                        data-error="Ошибка"
+                                        placeholder="Имя"
+                                        data-required=""
+                                        class="input"
+                                    />
                                 </div>
-                            </div>
+                                <div class="regist__input-tel">
+                                    <input
+                                        autocomplete="off"
+                                        type="text"
+                                        name="phone"
+                                        data-error="Ошибка"
+                                        placeholder="Телефон"
+                                        data-required="phone"
+                                        class="input"
+                                    />
+                                </div>
+                                <button type="submit" class="regist__btn form__btn btn">Оставить заявку</button>
+                            </form>
+                        </div>
+                        <div class="regist__image-ibg">
+                            <img src="@img/price.jpg" alt="Каппадокия" />
                         </div>
                     </div>
                 </section>
